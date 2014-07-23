@@ -9,6 +9,6 @@ import org.junit.Test;
 public class SimpleTest {
     @Test
     public void testHelloWorld(){
-        Assert.assertEquals("Helloworld", new String("Helloworld"));
+        Assert.assertEquals("Helloworld", new Helloworld().sayHi());
     }
 }
