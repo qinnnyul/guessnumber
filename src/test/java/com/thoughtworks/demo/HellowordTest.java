@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * Created by ylqin on 7/23/14.
  */
-public class SimpleTest {
+public class HellowordTest {
     @Test
     public void testHelloWorld(){
         Assert.assertEquals("Helloworld", new Helloworld().sayHi());
