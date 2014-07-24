@@ -1,6 +1,6 @@
 ## Notes:
 README.MD
-License
+LICENSE
 .gitignore
 
 ## 学习 markdown
