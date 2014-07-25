@@ -16,7 +16,7 @@
         <jdk.version>1.7</jdk.version>
         <cobertura.version>2.6</cobertura.version>
         <compiler.version>2.5.1</compiler.version>
-        <checkstype.config.location>${basedir}/src/main/resources/checkstyle.xml</checkstype.config.location>
+        <checkstyle.config.location>${basedir}/src/main/resources/checkstyle.xml</checkstyle.config.location>
     </properties>
 
     <dependencies>
@@ -57,7 +57,7 @@
                 <version>${checkstyle.version}</version>
                 <configuration>
                     <logViolationsToConsole>true</logViolationsToConsole>
-                    <configLocation>${checkstype.config.location}</configLocation>
+                    <configLocation>${checkstyle.config.location}</configLocation>
                 </configuration>
                 <executions>
                     <execution>
