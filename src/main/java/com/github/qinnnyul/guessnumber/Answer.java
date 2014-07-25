@@ -22,24 +22,10 @@ public class Answer
         return new Answer(number);
     }
 
-    public String compare(Answer inputNumber)
+    public String compare(Answer answer)
     {
-        final List<String> inputNumbers = newArrayList(inputNumber.number.split(" "));
-        final List<String> actualNumbers = newArrayList(number.split(" "));
-        return countA(actualNumbers, inputNumbers) + "A" + countB(actualNumbers, inputNumbers) + "B";
-
-    }
-
-    private int countA(final List<String> actualNumbers, final List<String> inputNumbers)
-    {
-        return from(inputNumbers).filter(new Predicate<String>()
-        {
-            @Override
-            public boolean apply(String number)
-            {
-                return actualNumbers.contains(number) && actualNumbers.indexOf(number) == inputNumbers.indexOf(number);
-            }
-        }).toList().size();
+        return countA(newArrayList(number.split(" ")), newArrayList(answer.number.split(" ")))
+                + "A" + countB(newArrayList(number.split(" ")), newArrayList(answer.number.split(" "))) + "B";
     }
 
     private int countB(final List<String> actualNumbers, final List<String> inputNumbers)
@@ -50,6 +36,18 @@ public class Answer
             public boolean apply(String number)
             {
                 return actualNumbers.contains(number) && actualNumbers.indexOf(number) != inputNumbers.indexOf(number);
+            }
+        }).toList().size();
+    }
+
+    private int countA(final List<String> actualNumbers, final List<String> inputNumbers)
+    {
+        return from(inputNumbers).filter(new Predicate<String>()
+        {
+            @Override
+            public boolean apply(String number)
+            {
+                return actualNumbers.contains(number) && actualNumbers.indexOf(number) == inputNumbers.indexOf(number);
             }
         }).toList().size();
     }
