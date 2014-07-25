@@ -1,7 +1,15 @@
 package com.github.qinnnyul.guessnumber;
 
+import com.google.common.base.Predicate;
+
+import java.util.List;
+
+import static com.google.common.collect.FluentIterable.from;
+import static com.google.common.collect.Lists.newArrayList;
+
 public class Answer
 {
+
     private String number;
 
     public Answer(String number)
@@ -12,6 +20,38 @@ public class Answer
     public static Answer createAnswer(String number)
     {
         return new Answer(number);
+    }
+
+    public String compare(Answer inputNumber)
+    {
+        final List<String> inputNumbers = newArrayList(inputNumber.number.split(" "));
+        final List<String> actualNumbers = newArrayList(number.split(" "));
+        return countA(actualNumbers, inputNumbers) + "A" + countB(actualNumbers, inputNumbers) + "B";
+
+    }
+
+    private int countA(final List<String> actualNumbers, final List<String> inputNumbers)
+    {
+        return from(inputNumbers).filter(new Predicate<String>()
+        {
+            @Override
+            public boolean apply(String number)
+            {
+                return actualNumbers.contains(number) && actualNumbers.indexOf(number) == inputNumbers.indexOf(number);
+            }
+        }).toList().size();
+    }
+
+    private int countB(final List<String> actualNumbers, final List<String> inputNumbers)
+    {
+        return from(inputNumbers).filter(new Predicate<String>()
+        {
+            @Override
+            public boolean apply(String number)
+            {
+                return actualNumbers.contains(number) && actualNumbers.indexOf(number) != inputNumbers.indexOf(number);
+            }
+        }).toList().size();
     }
 }
 

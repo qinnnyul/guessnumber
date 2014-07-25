@@ -11,6 +11,7 @@ public class Game
 
     public String guess(Answer inputAnswer)
     {
-        return "0A0B";
+        return actualAnswer.compare(inputAnswer);
     }
+
 }

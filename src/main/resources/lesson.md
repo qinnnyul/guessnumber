@@ -6,10 +6,9 @@ LICENSE
 ## 学习 markdown
 
 ## 学习 maven 常用plugins
-
 * maven-compiler-plugin
 * maven-checkstyle-plugin
-* maven-coburtura-plugin
+* cobertura-maven-plugin
 
 ## 学习测试相关的框架
 * hamcrest
