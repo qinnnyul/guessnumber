@@ -51,5 +51,11 @@ public class Answer
             }
         }).toList().size();
     }
+
+    @Override
+    public String toString()
+    {
+        return number;
+    }
 }
 
