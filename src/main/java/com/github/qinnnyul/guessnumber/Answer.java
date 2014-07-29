@@ -10,6 +10,9 @@ import static com.google.common.collect.Lists.newArrayList;
 public class Answer
 {
 
+    public static final String A = "A";
+    public static final String B = "B";
+    public static final String DEMILITER = " ";
     private String number;
 
     public Answer(String number)
@@ -24,8 +27,9 @@ public class Answer
 
     public String compare(Answer answer)
     {
-        return countA(newArrayList(number.split(" ")), newArrayList(answer.number.split(" ")))
-                + "A" + countB(newArrayList(number.split(" ")), newArrayList(answer.number.split(" "))) + "B";
+        return new StringBuilder().append(countA(newArrayList(number.split(DEMILITER)), newArrayList(answer.number.split(DEMILITER)))).append(A)
+                .append(countB(newArrayList(number.split(DEMILITER)), newArrayList(answer.number.split(DEMILITER)))).append(B).toString();
+
     }
 
     private int countB(final List<String> actualNumbers, final List<String> inputNumbers)
@@ -52,10 +56,5 @@ public class Answer
         }).toList().size();
     }
 
-    @Override
-    public String toString()
-    {
-        return number;
-    }
 }
 

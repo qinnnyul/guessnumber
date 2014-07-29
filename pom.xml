@@ -16,7 +16,7 @@
         <jdk.version>1.7</jdk.version>
         <cobertura.version>2.6</cobertura.version>
         <compiler.version>2.5.1</compiler.version>
-        <checkstyle.config.location>${basedir}/src/main/resources/checkstyle.xml</checkstyle.config.location>
+        <checkstyle.config.location>${basedir}/config/checkstyle/checkstyle.xml</checkstyle.config.location>
     </properties>
 
     <dependencies>
@@ -57,7 +57,7 @@
                 <version>${checkstyle.version}</version>
                 <configuration>
                     <logViolationsToConsole>true</logViolationsToConsole>
-                    <configLocation>${checkstyle.config.location}</configLocation>
+                    <configLocation>config/checkstyle/checkstyle.xml</configLocation>
                 </configuration>
                 <executions>
                     <execution>
@@ -94,22 +94,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <!--<reporting>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
-                <!--<version>${checkstyle.version}</version>-->
-                <!--<reportSets>-->
-                    <!--<reportSet>-->
-                        <!--<reports>-->
-                            <!--<report>checkstyle</report>-->
-                        <!--</reports>-->
-                    <!--</reportSet>-->
-                <!--</reportSets>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</reporting>-->
 
 </project>
