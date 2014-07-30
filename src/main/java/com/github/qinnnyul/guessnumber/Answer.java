@@ -10,9 +10,9 @@ import static com.google.common.collect.Lists.newArrayList;
 public class Answer
 {
 
-    public static final String A = "A";
-    public static final String B = "B";
-    public static final String DEMILITER = " ";
+    private static final String A = "A";
+    private static final String B = "B";
+    private static final String DEMILITER = " ";
     private String number;
 
     public Answer(String number)
