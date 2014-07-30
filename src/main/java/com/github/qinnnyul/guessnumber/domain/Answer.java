@@ -1,4 +1,4 @@
-package com.github.qinnnyul.guessnumber;
+package com.github.qinnnyul.guessnumber.domain;
 
 import com.google.common.base.Predicate;
 

@@ -1,5 +1,6 @@
 package com.github.qinnnyul.guessnumber;
 
+import com.github.qinnnyul.guessnumber.domain.Answer;
 import org.junit.Before;
 import org.junit.Test;
 

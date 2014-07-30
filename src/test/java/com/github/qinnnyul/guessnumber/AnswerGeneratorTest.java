@@ -1,9 +1,17 @@
 package com.github.qinnnyul.guessnumber;
 
+import com.github.qinnnyul.guessnumber.domain.Answer;
+import com.github.qinnnyul.guessnumber.exception.AnswerLengthInvalidException;
+import com.github.qinnnyul.guessnumber.exception.AnswerOutOfRangeException;
+import com.github.qinnnyul.guessnumber.generator.AnswerGenerator;
+import com.github.qinnnyul.guessnumber.generator.RandomNumberGenerator;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Random;
+
 import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Sets.newHashSet;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
@@ -17,7 +25,7 @@ public class AnswerGeneratorTest
     @Before
     public void setUp() throws Exception
     {
-        answerGenerator = new AnswerGenerator(new RandomNumberGenerator());
+        answerGenerator = new AnswerGenerator(new RandomNumberGenerator(new Random()), answerValidator);
     }
 
 
@@ -31,13 +39,26 @@ public class AnswerGeneratorTest
         assertThat(answer, notNullValue());
     }
 
-    @Test(expected = AnswerInvalidException.class)
+    @Test(expected = AnswerOutOfRangeException.class)
     public void should_raise_error_when_generated_invalid_answer() throws Exception
     {
         //given
         RandomNumberGenerator randomNumberGenerator = mock(RandomNumberGenerator.class);
-        when(randomNumberGenerator.generate(4)).thenReturn(newArrayList("1", "2", "4", "4"));
-        answerGenerator = new AnswerGenerator(randomNumberGenerator);
+        when(randomNumberGenerator.generate()).thenReturn(newHashSet("1", "2", "4", "4"));
+        answerGenerator = new AnswerGenerator(randomNumberGenerator, answerValidator);
+
+        // when
+        answerGenerator.generate();
+
+    }
+
+    @Test(expected = AnswerLengthInvalidException.class)
+    public void should_raise_error_when_generated_answer_length_is_not_4() throws Exception
+    {
+        // given
+        RandomNumberGenerator randomNumberGenerator = mock(RandomNumberGenerator.class);
+        when(randomNumberGenerator.generate()).thenReturn(newHashSet("1", "2"));
+        answerGenerator = new AnswerGenerator(randomNumberGenerator, answerValidator);
 
         // when
         answerGenerator.generate();

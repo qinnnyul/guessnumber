@@ -1,5 +1,7 @@
 package com.github.qinnnyul.guessnumber;
 
+import com.github.qinnnyul.guessnumber.domain.Answer;
+
 public class Game
 {
     private final Answer actualAnswer;
