@@ -2,17 +2,20 @@ package com.github.qinnnyul.guessnumber.domain;
 
 import com.google.common.base.Predicate;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
+import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_SEPARATOR;
 import static com.google.common.collect.FluentIterable.from;
 import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Sets.newLinkedHashSet;
 
 public class Answer
 {
 
     private static final String A = "A";
     private static final String B = "B";
-    private static final String DEMILITER = " ";
     private String number;
 
     public Answer(String number)
@@ -27,9 +30,12 @@ public class Answer
 
     public String compare(Answer answer)
     {
-        return new StringBuilder().append(countA(newArrayList(number.split(DEMILITER)), newArrayList(answer.number.split(DEMILITER)))).append(A)
-                .append(countB(newArrayList(number.split(DEMILITER)), newArrayList(answer.number.split(DEMILITER)))).append(B).toString();
-
+        return new StringBuilder()
+                .append(countA(newArrayList(number.split(ANSWER_SEPARATOR)), newArrayList(answer.number.split(ANSWER_SEPARATOR))))
+                .append(A)
+                .append(countB(newArrayList(number.split(ANSWER_SEPARATOR)), newArrayList(answer.number.split(ANSWER_SEPARATOR))))
+                .append(B)
+                .toString();
     }
 
     private int countB(final List<String> actualNumbers, final List<String> inputNumbers)
@@ -56,5 +62,9 @@ public class Answer
         }).toList().size();
     }
 
+    public Set<String> getNumberAsSet()
+    {
+        return newLinkedHashSet(Arrays.asList(number.split(ANSWER_SEPARATOR)));
+    }
 }
 

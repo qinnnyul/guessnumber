@@ -1,16 +1,16 @@
-package com.github.qinnnyul.guessnumber;
+package com.github.qinnnyul.guessnumber.generator;
 
 import com.github.qinnnyul.guessnumber.domain.Answer;
 import com.github.qinnnyul.guessnumber.exception.AnswerLengthInvalidException;
 import com.github.qinnnyul.guessnumber.exception.AnswerOutOfRangeException;
 import com.github.qinnnyul.guessnumber.generator.AnswerGenerator;
 import com.github.qinnnyul.guessnumber.generator.RandomNumberGenerator;
+import com.github.qinnnyul.guessnumber.validate.AnswerValidator;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Random;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Sets.newHashSet;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -21,10 +21,12 @@ public class AnswerGeneratorTest
 {
 
     private AnswerGenerator answerGenerator;
+    private AnswerValidator answerValidator;
 
     @Before
     public void setUp() throws Exception
     {
+        answerValidator = new AnswerValidator();
         answerGenerator = new AnswerGenerator(new RandomNumberGenerator(new Random()), answerValidator);
     }
 
@@ -40,11 +42,11 @@ public class AnswerGeneratorTest
     }
 
     @Test(expected = AnswerOutOfRangeException.class)
-    public void should_raise_error_when_generated_invalid_answer() throws Exception
+    public void should_raise_error_when_generated_answer_is_out_of_range() throws Exception
     {
         //given
         RandomNumberGenerator randomNumberGenerator = mock(RandomNumberGenerator.class);
-        when(randomNumberGenerator.generate()).thenReturn(newHashSet("1", "2", "4", "4"));
+        when(randomNumberGenerator.generate()).thenReturn(newHashSet("1", "2", "10", "4"));
         answerGenerator = new AnswerGenerator(randomNumberGenerator, answerValidator);
 
         // when

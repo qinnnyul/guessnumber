@@ -4,9 +4,7 @@ import com.github.qinnnyul.guessnumber.domain.Answer;
 import com.github.qinnnyul.guessnumber.validate.AnswerValidator;
 import com.google.common.base.Joiner;
 
-import java.util.Set;
-
-import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_SEPRARTOR;
+import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_SEPARATOR;
 
 public class AnswerGenerator
 {
@@ -22,8 +20,8 @@ public class AnswerGenerator
 
     public Answer generate()
     {
-        Set<String> numbers = randomNumberGenerator.generate();
-        answerValidator.validate(numbers);
-        return Answer.createAnswer(Joiner.on(ANSWER_SEPRARTOR).join(numbers));
+        Answer answer = Answer.createAnswer(Joiner.on(ANSWER_SEPARATOR).join(randomNumberGenerator.generate()));
+        answerValidator.validate(answer);
+        return answer;
     }
 }

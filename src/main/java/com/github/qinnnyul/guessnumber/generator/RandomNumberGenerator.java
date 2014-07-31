@@ -5,7 +5,7 @@ import java.util.Set;
 
 import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_RANGE;
 import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_SIZE;
-import static com.google.common.collect.Sets.newHashSet;
+import static com.google.common.collect.Sets.newLinkedHashSet;
 
 public class RandomNumberGenerator
 {
@@ -19,7 +19,7 @@ public class RandomNumberGenerator
 
     public Set<String> generate()
     {
-        Set<String> numbers = newHashSet();
+        Set<String> numbers = newLinkedHashSet();
         while (numbers.size() < ANSWER_SIZE) {
             numbers.add(String.valueOf(createAnswerValue()));
         }
