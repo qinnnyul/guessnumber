@@ -8,7 +8,6 @@ import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_SEPAR
 
 public class AnswerGenerator
 {
-
     private RandomNumberGenerator randomNumberGenerator;
     private AnswerValidator answerValidator;
 
