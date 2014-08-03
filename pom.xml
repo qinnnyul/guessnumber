@@ -82,6 +82,11 @@
                         <packageLineRate>80</packageLineRate>
                         <packageBranchRate>80</packageBranchRate>
                     </check>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>com/github/qinnnyul/guessnumber/constant/AnswerConstant.class</exclude>
+                        </excludes>
+                    </instrumentation>
                 </configuration>
                 <executions>
                     <execution>

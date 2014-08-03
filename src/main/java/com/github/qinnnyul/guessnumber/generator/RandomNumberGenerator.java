@@ -3,8 +3,8 @@ package com.github.qinnnyul.guessnumber.generator;
 import java.util.Random;
 import java.util.Set;
 
-import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_RANGE;
-import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_SIZE;
+import static com.github.qinnnyul.guessnumber.constant.AnswerConstant.ANSWER_RANGE;
+import static com.github.qinnnyul.guessnumber.constant.AnswerConstant.ANSWER_SIZE;
 import static com.google.common.collect.Sets.newLinkedHashSet;
 
 public class RandomNumberGenerator

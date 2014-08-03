@@ -6,8 +6,8 @@ import com.github.qinnnyul.guessnumber.exception.AnswerOutOfRangeException;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterators;
 
-import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_RANGE;
-import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_SIZE;
+import static com.github.qinnnyul.guessnumber.constant.AnswerConstant.ANSWER_RANGE;
+import static com.github.qinnnyul.guessnumber.constant.AnswerConstant.ANSWER_SIZE;
 
 public class AnswerValidator
 {

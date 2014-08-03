@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_SEPARATOR;
+import static com.github.qinnnyul.guessnumber.constant.AnswerConstant.ANSWER_SEPARATOR;
 import static com.google.common.collect.FluentIterable.from;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Sets.newLinkedHashSet;

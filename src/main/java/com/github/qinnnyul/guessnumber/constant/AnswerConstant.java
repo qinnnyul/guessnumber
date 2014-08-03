@@ -1,4 +1,4 @@
-package com.github.qinnnyul.guessnumber.domain;
+package com.github.qinnnyul.guessnumber.constant;
 
 import com.google.common.collect.Range;
 

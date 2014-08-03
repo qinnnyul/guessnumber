@@ -4,7 +4,7 @@ import com.github.qinnnyul.guessnumber.domain.Answer;
 import com.github.qinnnyul.guessnumber.validate.AnswerValidator;
 import com.google.common.base.Joiner;
 
-import static com.github.qinnnyul.guessnumber.domain.AnswerConstant.ANSWER_SEPARATOR;
+import static com.github.qinnnyul.guessnumber.constant.AnswerConstant.ANSWER_SEPARATOR;
 
 public class AnswerGenerator
 {
