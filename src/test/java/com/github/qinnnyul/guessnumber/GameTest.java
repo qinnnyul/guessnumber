@@ -1,8 +1,12 @@
 package com.github.qinnnyul.guessnumber;
 
 import com.github.qinnnyul.guessnumber.domain.Answer;
+import com.github.qinnnyul.guessnumber.domain.GuessResult;
+import com.github.qinnnyul.guessnumber.service.Game;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -87,4 +91,16 @@ public class GameTest
         assertThat(result, is("0A4B"));
     }
 
+    @Test
+    public void should_be_able_to_get_history_from_game() throws Exception
+    {
+        // given
+        game.guess(Answer.createAnswer("1 2 3 4"));
+        game.guess(Answer.createAnswer("4 5 3 1"));
+        // when
+        List<GuessResult> records = game.getHistory();
+        // then
+
+        assertThat(records.size(), is(2));
+    }
 }

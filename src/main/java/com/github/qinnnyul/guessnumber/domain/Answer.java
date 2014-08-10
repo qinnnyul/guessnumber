@@ -66,5 +66,11 @@ public class Answer
     {
         return newLinkedHashSet(Arrays.asList(number.split(ANSWER_SEPARATOR)));
     }
+
+    @Override
+    public String toString()
+    {
+        return number;
+    }
 }
 

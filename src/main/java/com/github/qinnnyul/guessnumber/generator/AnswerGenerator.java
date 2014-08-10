@@ -24,3 +24,4 @@ public class AnswerGenerator
         return answer;
     }
 }
+

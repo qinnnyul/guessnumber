@@ -18,9 +18,11 @@ LICENSE
 ## 多写，多练习
 
 
-PMD    FIND BUGS
+PMD
+
+FIND BUGS
+findbugs-maven-plugin
 mockito
 
-
-
+Stub vs mock
 
