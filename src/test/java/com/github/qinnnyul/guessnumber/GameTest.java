@@ -103,4 +103,13 @@ public class GameTest
 
         assertThat(records.size(), is(2));
     }
+
+    @Test
+    public void should_return_true_when_you_guess_the_right_number() throws Exception
+    {
+        // when
+        game.guess(Answer.createAnswer("1 2 3 4"));
+        // then
+        assertThat(game.isSuccess(), is(true));
+    }
 }

@@ -21,4 +21,5 @@ public class GameViewTest
         // then
         verify(game, times(1)).getHistory();
     }
+
 }

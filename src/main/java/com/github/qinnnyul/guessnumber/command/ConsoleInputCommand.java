@@ -10,10 +10,14 @@ public class ConsoleInputCommand implements InputCommand
 {
     private BufferedReader bufferedReader;
 
+    public ConsoleInputCommand(BufferedReader bufferedReader)
+    {
+        this.bufferedReader = bufferedReader;
+    }
+
     @Override
     public Answer input() throws IOException
     {
-        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         return Answer.createAnswer(bufferedReader.readLine());
     }
 }

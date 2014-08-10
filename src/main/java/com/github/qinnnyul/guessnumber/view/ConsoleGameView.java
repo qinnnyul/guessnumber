@@ -10,7 +10,13 @@ public class ConsoleGameView implements GameView
     public void display(List<GuessResult> history)
     {
         for (GuessResult guessResult : history){
-            System.out.println(guessResult.getAnswer() + ":" + guessResult.getResult());
+            displayGuessResult(guessResult);
         }
     }
+
+    private void displayGuessResult(GuessResult guessResult)
+    {
+        System.out.println(guessResult.getAnswer() + ":" + guessResult.getResult());
+    }
+
 }

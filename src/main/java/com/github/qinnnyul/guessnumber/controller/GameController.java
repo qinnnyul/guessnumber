@@ -27,9 +27,9 @@ public class GameController
         int size = 0;
         do {
             Answer answer = inputCommand.input();
-            result = game.guess(answer);
+            game.guess(answer);
             size++;
-        } while (!RIGHT_RESULT.equals(result) && size < GUESS_TIMES);
+        } while (!game.isSuccess() && size < GUESS_TIMES);
 
         System.out.println(game.getHistory().contains(RIGHT_RESULT) ? "Success" : "failed");
     }
